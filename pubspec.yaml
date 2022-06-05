@@ -21,7 +21,7 @@ dependencies:
   google_sign_in: ^5.3.2
   isar: ^2.5.0
   isar_flutter_libs: ^2.5.0
-  modular_bloc_bind: ^1e.0.1
+  modular_bloc_bind: ^1.0.1
   path_provider: ^2.0.10
   validatorless: ^1.2.1
 
