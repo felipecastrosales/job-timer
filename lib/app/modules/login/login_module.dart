@@ -1,6 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:job_timer/app/modules/splash/splash_page.dart';
+import 'login_page.dart';
 
 
 class LoginModule extends Module {
@@ -11,7 +11,7 @@ class LoginModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
-          child: (context, args) => const SplashPage(),
+          child: (context, args) => const LoginPage(),
         ),
       ];
 }
