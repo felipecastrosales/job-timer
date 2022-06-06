@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                 (isar) async {
                   var project = Project();
                   project.name = 'Test';
-                  project.status = ProjectStatus.in_loading;
+                  project.status = ProjectStatus.inLoading;
                   return connection.projects.put(project);
                 },
               );

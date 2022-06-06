@@ -6,7 +6,7 @@ part of 'project_task.dart';
 // IsarCollectionGenerator
 // **************************************************************************
 
-// ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, unused_local_variable
+// ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, unused_local_variable, no_leading_underscores_for_local_identifiers
 
 extension GetProjectTaskCollection on Isar {
   IsarCollection<ProjectTask> get projectTasks => getCollection();
@@ -33,7 +33,7 @@ const ProjectTaskSchema = CollectionSchema(
   serializeWeb: _projectTaskSerializeWeb,
   deserializeWeb: _projectTaskDeserializeWeb,
   deserializePropWeb: _projectTaskDeserializePropWeb,
-  version: 3,
+  version: 4,
 );
 
 int? _projectTaskGetId(ProjectTask object) {
@@ -54,7 +54,7 @@ List<IsarLinkBase> _projectTaskGetLinks(ProjectTask object) {
 
 void _projectTaskSerializeNative(
     IsarCollection<ProjectTask> collection,
-    IsarRawObject rawObj,
+    IsarCObject cObj,
     ProjectTask object,
     int staticSize,
     List<int> offsets,
@@ -69,9 +69,9 @@ void _projectTaskSerializeNative(
   dynamicSize += (_name.length) as int;
   final size = staticSize + dynamicSize;
 
-  rawObj.buffer = alloc(size);
-  rawObj.buffer_length = size;
-  final buffer = IsarNative.bufAsBytes(rawObj.buffer, size);
+  cObj.buffer = alloc(size);
+  cObj.buffer_length = size;
+  final buffer = IsarNative.bufAsBytes(cObj.buffer, size);
   final writer = IsarBinaryWriter(buffer, staticSize);
   writer.writeDateTime(offsets[0], _created);
   writer.writeLong(offsets[1], _duration);

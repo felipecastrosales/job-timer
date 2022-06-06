@@ -1,5 +1,5 @@
 enum ProjectStatus {
-  in_loading(label: 'In Loading'),
+  inLoading(label: 'In Loading'),
   finished(label: 'Finished');
 
   final String label;
