@@ -22,11 +22,12 @@ class HomePage extends StatelessWidget {
             onPressed: () async {
               final db = Modular.get<Database>();
               final connection = await db.openConnection();
+              connection.writeTxn((isar) => connection.clear());
               connection.writeTxn(
                 (isar) async {
                   var project = Project();
                   project.name = 'Test';
-                  project.status = ProjectStatus.inLoading;
+                  project.status = ProjectStatus.finished;
                   return connection.projects.put(project);
                 },
               );
