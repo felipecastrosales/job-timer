@@ -5,7 +5,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'core/ui/app_config_ui.dart';
 
 class AppWidget extends StatelessWidget {
-  const AppWidget({Key? key}) : super(key: key);
+  const AppWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
