@@ -9,7 +9,10 @@ class HeaderProjectsMenu extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(
-      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Container(
@@ -33,7 +36,11 @@ class HeaderProjectsMenu extends SliverPersistentHeaderDelegate {
                       .map((e) =>
                           DropdownMenuItem(value: e, child: Text(e.label)))
                       .toList(),
-                  onChanged: (value) {},
+                  onChanged: (status) {
+                    if (status != null) {
+                      controller.filter(status);
+                    }
+                  },
                 ),
               ),
               SizedBox(
