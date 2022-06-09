@@ -6,6 +6,7 @@ import 'package:job_timer/app/view_models/project_model.dart';
 
 import 'controller/home_controller.dart';
 import 'widgets/header_projects_menu.dart';
+import 'widgets/project_tile.dart';
 
 class HomePage extends StatelessWidget {
   final HomeController controller;
@@ -46,7 +47,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               SliverPersistentHeader(
-                delegate: HeaderProjectsMenu(),
+                delegate: HeaderProjectsMenu(controller: controller),
                 pinned: true,
               ),
               BlocSelector<HomeController, HomeState, bool>(
@@ -74,10 +75,7 @@ class HomePage extends StatelessWidget {
                     delegate: SliverChildListDelegate(
                       projects
                           .map(
-                            (project) => ListTile(
-                              title: Text(project.name),
-                              subtitle: Text('${project.estimate}h'),
-                            ),
+                            (project) => ProjectTile(projectModel: project),
                           )
                           .toList(),
                     ),
