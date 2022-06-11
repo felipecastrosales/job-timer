@@ -37,7 +37,7 @@
 <h2>📱 Preview</h2>
 
    <p align="center">
-      <img src=".github/assets/job-timer.gif" width="400" alt="Job Timer Demonstração">
+      <img src=".github/job-timer.gif" width="400" alt="Job Timer Demonstração">
    </p>
 
 ---
