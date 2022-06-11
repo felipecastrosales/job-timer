@@ -37,14 +37,14 @@
 <h2>📱 Preview</h2>
 
    <p align="center">
-      <img src=".github/assets/job-timer.mp4" width="400" alt="Job Timer Demonstração">
+      <img src=".github/assets/job-timer.gif" width="400" alt="Job Timer Demonstração">
    </p>
 
 ---
 
 <h2>📦 Assets</h2>
 
-- UI Design criado para o evento: <a href="https://www.figma.com/file/eJK6AHqHXEAurdkDmvPdF2/Job-Timer">** Job Timer ⏱️**</a>
+- UI Design criado para o evento: <a href="https://www.figma.com/file/eJK6AHqHXEAurdkDmvPdF2/Job-Timer">**Job Timer ⏱️**</a>
 
 ---   
 
