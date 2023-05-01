@@ -7,12 +7,12 @@ import 'package:job_timer/app/services/auth/auth_service.dart';
 part 'login_state.dart';
 
 class LoginController extends Cubit<LoginState> {
-  final AuthService _authService;
-
   LoginController({
     required AuthService authService,
   })  : _authService = authService,
         super(const LoginState.initial());
+
+  final AuthService _authService;
 
   Future<void> signIn() async {
     emit(state.copyWith(status: LoginStatus.loading));
@@ -20,10 +20,12 @@ class LoginController extends Cubit<LoginState> {
       await _authService.signIn();
     } catch (e, s) {
       developer.log('Error when signing in', error: e, stackTrace: s);
-      emit(state.copyWith(
-        status: LoginStatus.failure,
-        errorMessage: 'Error when logging in',
-      ));
+      emit(
+        state.copyWith(
+          status: LoginStatus.failure,
+          errorMessage: 'Error when logging in',
+        ),
+      );
     }
   }
 }

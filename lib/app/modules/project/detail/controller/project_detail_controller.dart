@@ -9,12 +9,11 @@ import 'package:job_timer/app/view_models/project_model.dart';
 part 'project_detail_state.dart';
 
 class ProjectDetailController extends Cubit<ProjectDetailState> {
-  final ProjectService _projectService;
-
   ProjectDetailController({
     required ProjectService projectService,
   })  : _projectService = projectService,
         super(const ProjectDetailState.initial());
+  final ProjectService _projectService;
 
   void setProject(ProjectModel projectModel) {
     emit(
@@ -27,10 +26,12 @@ class ProjectDetailController extends Cubit<ProjectDetailState> {
 
   Future<void> updateProject() async {
     final project = await _projectService.findById(state.projectModel!.id!);
-    emit(state.copyWith(
-      projectModel: project,
-      status: ProjectDetailStatus.complete,
-    ));
+    emit(
+      state.copyWith(
+        projectModel: project,
+        status: ProjectDetailStatus.complete,
+      ),
+    );
   }
 
   Future<void> finishProject() async {

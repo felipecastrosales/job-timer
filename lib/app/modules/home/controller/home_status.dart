@@ -8,15 +8,6 @@ enum HomeStatus {
 }
 
 class HomeState extends Equatable {
-  final List<ProjectModel> projects;
-  final HomeStatus status;
-  final ProjectStatus projectFilter;
-
-  const HomeState._({
-    required this.projects,
-    required this.status,
-    required this.projectFilter,
-  });
 
   HomeState.initial()
       : this._(
@@ -24,6 +15,15 @@ class HomeState extends Equatable {
           projectFilter: ProjectStatus.inLoading,
           status: HomeStatus.initial,
         );
+
+  const HomeState._({
+    required this.projects,
+    required this.status,
+    required this.projectFilter,
+  });
+  final List<ProjectModel> projects;
+  final HomeStatus status;
+  final ProjectStatus projectFilter;
 
   @override
   List<Object?> get props => [projects, status, projectFilter];

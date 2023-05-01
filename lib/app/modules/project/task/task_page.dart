@@ -7,8 +7,9 @@ import 'package:validatorless/validatorless.dart';
 import 'controller/task_controller.dart';
 
 class TaskPage extends StatefulWidget {
-  final TaskController controller;
   const TaskPage({super.key, required this.controller});
+
+  final TaskController controller;
 
   @override
   State<TaskPage> createState() => _TaskPageState();

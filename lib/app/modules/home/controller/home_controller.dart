@@ -9,12 +9,12 @@ import 'package:job_timer/app/view_models/project_model.dart';
 part 'home_status.dart';
 
 class HomeController extends Cubit<HomeState> {
-  final ProjectService _projectService;
-
   HomeController({
     required ProjectService projectService,
   })  : _projectService = projectService,
         super(HomeState.initial());
+
+  final ProjectService _projectService;
 
   Future<void> loadProjects() async {
     try {

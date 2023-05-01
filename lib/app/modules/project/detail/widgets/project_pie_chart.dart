@@ -2,14 +2,14 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
 class ProjectPieChart extends StatelessWidget {
-  final int projectEstimate;
-  final int totalTask;
-
   const ProjectPieChart({
-    key,
+    super.key,
     required this.projectEstimate,
     required this.totalTask,
-  }) : super(key: key);
+  });
+
+  final int projectEstimate;
+  final int totalTask;
 
   @override
   Widget build(BuildContext context) {

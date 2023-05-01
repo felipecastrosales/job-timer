@@ -11,10 +11,11 @@ import 'package:job_timer/app/entities/project_task.dart';
 import 'project_repository.dart';
 
 class ProjectRepositoryImpl implements ProjectRepository {
-  final Database _database;
   ProjectRepositoryImpl({
     required Database database,
   }) : _database = database;
+
+  final Database _database;
 
   @override
   Future<void> register(Project project) async {

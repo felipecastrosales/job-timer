@@ -5,12 +5,12 @@ import 'package:job_timer/app/modules/home/controller/home_controller.dart';
 import 'package:job_timer/app/view_models/project_model.dart';
 
 class ProjectTile extends StatelessWidget {
-  final ProjectModel projectModel;
-
   const ProjectTile({
     super.key,
     required this.projectModel,
   });
+
+  final ProjectModel projectModel;
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +46,9 @@ class ProjectTile extends StatelessWidget {
 }
 
 class _ProjectName extends StatelessWidget {
-  final ProjectModel projectModel;
   const _ProjectName({required this.projectModel});
+
+  final ProjectModel projectModel;
 
   @override
   Widget build(BuildContext context) {
@@ -69,8 +70,9 @@ class _ProjectName extends StatelessWidget {
 }
 
 class _ProjectProgress extends StatelessWidget {
-  final ProjectModel projectModel;
   const _ProjectProgress({required this.projectModel});
+
+  final ProjectModel projectModel;
 
   @override
   Widget build(BuildContext context) {
