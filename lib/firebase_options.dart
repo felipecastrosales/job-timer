@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -25,7 +28,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -43,15 +49,6 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCm1_CLblzslRO0q5aesRc-fTd9DFYkFd0',
-    appId: '1:802051879682:web:d3c5187f4344f0c4d9c81b',
-    messagingSenderId: '802051879682',
-    projectId: 'dw-job-timer-7',
-    authDomain: 'dw-job-timer-7.firebaseapp.com',
-    storageBucket: 'dw-job-timer-7.appspot.com',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCTWA2gSVGgsfcI25zW5Zhn5gZ6lNZGOh4',
     appId: '1:802051879682:android:7374e55819854547d9c81b',
@@ -66,16 +63,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '802051879682',
     projectId: 'dw-job-timer-7',
     storageBucket: 'dw-job-timer-7.appspot.com',
-    iosClientId: '802051879682-qnvkk9a4dr312k1fhce12f6jda9j888u.apps.googleusercontent.com',
-    iosBundleId: 'com.example.jobTimer',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBWZDK7qPdVxsxEz9zcjjt2IPSBlGRxMYY',
-    appId: '1:802051879682:ios:2ceee57511a890dad9c81b',
-    messagingSenderId: '802051879682',
-    projectId: 'dw-job-timer-7',
-    storageBucket: 'dw-job-timer-7.appspot.com',
+    androidClientId: '802051879682-clq91efb8b7d657s5ug5at0ev1obb5fg.apps.googleusercontent.com',
     iosClientId: '802051879682-qnvkk9a4dr312k1fhce12f6jda9j888u.apps.googleusercontent.com',
     iosBundleId: 'com.example.jobTimer',
   );
