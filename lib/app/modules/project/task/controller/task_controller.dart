@@ -26,7 +26,10 @@ class TaskController extends Cubit<TaskStatus> {
         name: name,
         duration: duration,
       );
-      await _projectService.addTask(_projectModel.id!, task);
+      await _projectService.addTask(
+        _projectModel.id!,
+        task,
+      );
       emit(TaskStatus.success);
     } catch (e, s) {
       developer.log('Error when save task', error: e, stackTrace: s);

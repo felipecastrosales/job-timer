@@ -52,7 +52,9 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       controller.signIn();
                     },
-                    style: ElevatedButton.styleFrom(primary: Colors.grey[200]),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[200],
+                    ),
                     child: Container(
                       alignment: Alignment.center,
                       child: Image.asset('assets/images/google.png'),
