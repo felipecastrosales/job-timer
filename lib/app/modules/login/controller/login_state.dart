@@ -3,18 +3,18 @@ part of 'login_controller.dart';
 enum LoginStatus { initial, loading, failure }
 
 class LoginState extends Equatable {
-  @override
-  List<Object?> get props => [status, errorMessage];
 
-  final LoginStatus status;
-  final String? errorMessage;
+  const LoginState.initial() : this._(status: LoginStatus.initial);
 
   const LoginState._({
     required this.status,
     this.errorMessage,
   });
+  @override
+  List<Object?> get props => [status, errorMessage];
 
-  const LoginState.initial() : this._(status: LoginStatus.initial);
+  final LoginStatus status;
+  final String? errorMessage;
 
   LoginState copyWith({
     LoginStatus? status,

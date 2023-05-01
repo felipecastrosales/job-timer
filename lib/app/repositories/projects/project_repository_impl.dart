@@ -11,18 +11,19 @@ import 'package:job_timer/app/entities/project_task.dart';
 import 'project_repository.dart';
 
 class ProjectRepositoryImpl implements ProjectRepository {
-  final Database _database;
   ProjectRepositoryImpl({
     required Database database,
   }) : _database = database;
+
+  final Database _database;
 
   @override
   Future<void> register(Project project) async {
     try {
       final connection = await _database.openConnection();
-      await connection.writeTxn((isar) {
-        return isar.projects.put(project);
-      });
+      await connection.writeTxn(
+        () => connection.projects.put(project),
+      );
     } on IsarError catch (e, s) {
       developer.log('Error to sign project', error: e, stackTrace: s);
       throw Failure(message: 'Error to sign project');
@@ -42,9 +43,11 @@ class ProjectRepositoryImpl implements ProjectRepository {
     final connection = await _database.openConnection();
     final project = await findById(projectId);
     project.tasks.add(task);
-    await connection.writeTxn(
-      (isar) => project.tasks.save(),
-    );
+    await connection.writeTxn(() async {
+      await connection.projectTasks.put(task);
+      project.tasks.add(task);
+      return project.tasks.save();
+    });
     return project;
   }
 
@@ -65,7 +68,7 @@ class ProjectRepositoryImpl implements ProjectRepository {
       final project = await findById(projectId);
       project.status = ProjectStatus.finished;
       await connection.writeTxn(
-        (isar) => connection.projects.put(project, saveLinks: true),
+        () => connection.projects.put(project),
       );
     } on IsarError catch (e, s) {
       developer.log(e.message, error: e, stackTrace: s);

@@ -4,8 +4,9 @@ import 'package:job_timer/app/entities/project_status.dart';
 import 'package:job_timer/app/modules/home/controller/home_controller.dart';
 
 class HeaderProjectsMenu extends SliverPersistentHeaderDelegate {
-  final HomeController controller;
   HeaderProjectsMenu({required this.controller});
+
+  final HomeController controller;
 
   @override
   Widget build(
@@ -33,8 +34,9 @@ class HeaderProjectsMenu extends SliverPersistentHeaderDelegate {
                     isCollapsed: true,
                   ),
                   items: ProjectStatus.values
-                      .map((e) =>
-                          DropdownMenuItem(value: e, child: Text(e.label)))
+                      .map(
+                        (e) => DropdownMenuItem(value: e, child: Text(e.label)),
+                      )
                       .toList(),
                   onChanged: (status) {
                     if (status != null) {

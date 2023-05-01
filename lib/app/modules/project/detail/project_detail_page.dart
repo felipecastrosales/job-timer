@@ -12,11 +12,12 @@ import 'widgets/project_pie_chart.dart';
 import 'widgets/project_task_tile.dart';
 
 class ProjectDetailPage extends StatelessWidget {
-  final ProjectDetailController controller;
   const ProjectDetailPage({
     super.key,
     required this.controller,
   });
+
+  final ProjectDetailController controller;
 
   @override
   Widget build(BuildContext context) {

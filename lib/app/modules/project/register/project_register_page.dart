@@ -6,12 +6,12 @@ import 'package:job_timer/app/modules/project/register/controller/project_regist
 import 'package:validatorless/validatorless.dart';
 
 class ProjectRegisterPage extends StatefulWidget {
-  final ProjectRegisterController controller;
-
   const ProjectRegisterPage({
     super.key,
     required this.controller,
   });
+
+  final ProjectRegisterController controller;
 
   @override
   State<ProjectRegisterPage> createState() => _ProjectRegisterPageState();

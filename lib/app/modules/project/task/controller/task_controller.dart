@@ -9,13 +9,13 @@ import 'package:job_timer/app/view_models/project_task_model.dart';
 part 'task_state.dart';
 
 class TaskController extends Cubit<TaskStatus> {
-  late final ProjectModel _projectModel;
-  final ProjectService _projectService;
-
   TaskController({
     required ProjectService projectService,
   })  : _projectService = projectService,
         super(TaskStatus.initial);
+
+  late final ProjectModel _projectModel;
+  final ProjectService _projectService;
 
   void setProject(ProjectModel projectModel) => _projectModel = projectModel;
 
@@ -26,7 +26,10 @@ class TaskController extends Cubit<TaskStatus> {
         name: name,
         duration: duration,
       );
-      await _projectService.addTask(_projectModel.id!, task);
+      await _projectService.addTask(
+        _projectModel.id!,
+        task,
+      );
       emit(TaskStatus.success);
     } catch (e, s) {
       developer.log('Error when save task', error: e, stackTrace: s);

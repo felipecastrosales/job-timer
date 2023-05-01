@@ -5,12 +5,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'controller/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
-  final LoginController controller;
-
   const LoginPage({
     super.key,
     required this.controller,
   });
+
+  final LoginController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,9 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
                       controller.signIn();
                     },
-                    style: ElevatedButton.styleFrom(primary: Colors.grey[200]),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[200],
+                    ),
                     child: Container(
                       alignment: Alignment.center,
                       child: Image.asset('assets/images/google.png'),

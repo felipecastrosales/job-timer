@@ -13,7 +13,7 @@ class DatabaseImpl implements Database {
     if (_databaseInstance == null) {
       final dir = await getApplicationSupportDirectory();
       _databaseInstance = await Isar.open(
-        schemas: [
+        [
           ProjectTaskSchema,
           ProjectSchema,
         ],

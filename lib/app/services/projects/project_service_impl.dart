@@ -8,16 +8,16 @@ import 'package:job_timer/app/view_models/project_task_model.dart';
 import 'project_service.dart';
 
 class ProjectServiceImpl implements ProjectService {
-  final ProjectRepository _projectRepository;
-
   ProjectServiceImpl({
     required ProjectRepository projectRepository,
   }) : _projectRepository = projectRepository;
 
+  final ProjectRepository _projectRepository;
+
   @override
   Future<void> register(ProjectModel projectModel) async {
     final project = Project()
-      ..id = projectModel.id
+      ..id = projectModel.id ?? 0
       ..name = projectModel.name
       ..status = projectModel.status
       ..estimate = projectModel.estimate;

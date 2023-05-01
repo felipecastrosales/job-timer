@@ -33,15 +33,15 @@ class AppModule extends Module {
           child: (context, args) => const SplashPage(),
         ),
         ModuleRoute(
-          '/login',
+          '/login/',
           module: LoginModule(),
         ),
         ModuleRoute(
-          '/home',
+          '/home/',
           module: HomeModule(),
         ),
         ModuleRoute(
-          '/project',
+          '/project/',
           module: ProjectModule(),
         ),
       ];

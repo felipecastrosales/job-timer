@@ -9,11 +9,12 @@ import 'widgets/header_projects_menu.dart';
 import 'widgets/project_tile.dart';
 
 class HomePage extends StatelessWidget {
-  final HomeController controller;
   const HomePage({
     super.key,
     required this.controller,
   });
+
+  final HomeController controller;
 
   @override
   Widget build(BuildContext context) {

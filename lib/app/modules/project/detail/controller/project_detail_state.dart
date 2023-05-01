@@ -3,16 +3,16 @@ part of 'project_detail_controller.dart';
 enum ProjectDetailStatus { initial, loading, complete, failure }
 
 class ProjectDetailState extends Equatable {
-  final ProjectDetailStatus status;
-  final ProjectModel? projectModel;
+
+  const ProjectDetailState.initial()
+      : this._(status: ProjectDetailStatus.initial);
 
   const ProjectDetailState._({
     required this.status,
     this.projectModel,
   });
-
-  const ProjectDetailState.initial()
-      : this._(status: ProjectDetailStatus.initial);
+  final ProjectDetailStatus status;
+  final ProjectModel? projectModel;
 
   ProjectDetailState copyWith({
     ProjectDetailStatus? status,
